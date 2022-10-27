@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/boot.gd" type="Script" id=1]
+[ext_resource path="res://Used textures/font/ThaleahFat.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Used textures/press_start.png" type="Texture" id=3]
+[ext_resource path="res://Used textures/dark_slow.png" type="Texture" id=4]
+[ext_resource path="res://Used textures/dark.png" type="Texture" id=5]
+[ext_resource path="res://Used textures/White.png" type="Texture" id=6]
+[ext_resource path="res://assets/sfx/8Bit DNA Loop.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/African4.wav" type="AudioStream" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 279
+font_data = ExtResource( 2 )
+
+[node name="boot" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="background" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="RG" type="Label" parent="."]
+margin_left = 48.0
+margin_top = 120.0
+margin_right = 1255.0
+margin_bottom = 376.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Game"
+align = 1
+
+[node name="DarkSlow_FL" type="Sprite" parent="."]
+position = Vector2( 1363, 519 )
+rotation = -1.5708
+scale = Vector2( 0.8209, 0.8209 )
+texture = ExtResource( 4 )
+
+[node name="Dark_FL" type="Sprite" parent="DarkSlow_FL"]
+position = Vector2( -0.00012207, -899.675 )
+rotation = 3.14159
+scale = Vector2( 1, 2.20271 )
+texture = ExtResource( 5 )
+
+[node name="DarkSlow_RG" type="Sprite" parent="."]
+position = Vector2( -173, 261 )
+rotation = 1.5708
+scale = Vector2( 0.906035, 0.906035 )
+texture = ExtResource( 4 )
+
+[node name="Dark_RG" type="Sprite" parent="DarkSlow_RG"]
+position = Vector2( -0.00012207, -899.675 )
+rotation = 3.14159
+scale = Vector2( 1, 2.20271 )
+texture = ExtResource( 5 )
+
+[node name="Bus" type="Sprite" parent="."]
+position = Vector2( 1581.99, 541 )
+scale = Vector2( 4.02017, 0.660353 )
+texture = ExtResource( 6 )
+
+[node name="PressStart" type="Sprite" parent="Bus"]
+position = Vector2( 0.673004, -3.42651 )
+scale = Vector2( 0.124657, 0.758901 )
+texture = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="bus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )

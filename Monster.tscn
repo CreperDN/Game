@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Monster.gd" type="Script" id=1]
+[ext_resource path="res://DogMondtro.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 293.061
+
+[sub_resource type="CircleShape2D" id=2]
+
+[node name="Node2D" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( -4.50859, -1.67109 )
+scale = Vector2( 0.773437, 1.24219 )
+polygon = PoolVector2Array( -22.6152, -3.48491, -25.201, 2.15031, -17.4434, 8.59057, -18.7364, 11.8107, -26.4939, 20.666, -20.0293, 20.666, 30.395, 21.4711, 29.102, 7.78553, 31.6879, 4.56541, 31.6879, 2.15031, 36.8596, 1.34528, 38.1525, -3.48491, 34.2737, -5.09497, 32.9808, -7.51006, 26.5162, -13.1453, 13.5869, -12.3403, 13.5869, -5.9, 8.41515, -1.06981, 4.53636, -1.87484, 0.657576, 0.540252, -3.22121, 0.540252, -5.80707, -5.9, -17.4434, -6.70503 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
